@@ -2,11 +2,11 @@
 package moviewizard;
 
 import java.awt.Color;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.*;
 import java.awt.Graphics2D;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 
 
 public class StickerMaker {
@@ -14,11 +14,7 @@ public class StickerMaker {
     
     public void gerar(InputStream inputStream, String fileName) throws Exception {
      
-        // ler imagem
-        
-        // InputStream input = new FileInputStream("images/TopMovies_8.jpg");
-        
-//        var input = new URL(inputStream).openStream();
+        // ler imagem:
         
         BufferedImage original = ImageIO.read(inputStream);
         
@@ -26,11 +22,9 @@ public class StickerMaker {
         int width = original.getWidth();
         int height = original.getHeight();
         
-        int newHeight = height + 200;
+        int newHeight = height + (height/10);
         
         BufferedImage newImage = new BufferedImage(width, newHeight, BufferedImage.TRANSLUCENT);
-        
-        
         
         // copiar, ainda em memória, imagem original para nova.        
         Graphics2D graphics = (Graphics2D)newImage.getGraphics();
@@ -40,7 +34,8 @@ public class StickerMaker {
         // criar legenda para nova imagem.
         
         // configurar a fonte usada:
-        var fonte = new Font(Font.MONOSPACED, Font.BOLD, 42);
+        int tamanhoFonte = Math.floorDiv(width, 30);
+        var fonte = new Font(Font.MONOSPACED, Font.BOLD, tamanhoFonte);
         
         graphics.setColor(Color.YELLOW);
         graphics.setFont(fonte);
@@ -49,10 +44,12 @@ public class StickerMaker {
         
         var textWidth = graphics.getFontMetrics().stringWidth(legenda);
         
-        graphics.drawString(legenda, width/2 - textWidth/2 , newHeight - 100);
+        int alturaTexto = newHeight - (newHeight - height) / 2 + tamanhoFonte / 2;
+        
+        graphics.drawString(legenda, width/2 - textWidth/2 , alturaTexto);
         
         // escrever nova imagem em um arquivo.
-        ImageIO.write(newImage, "png", new File(fileName));
+        ImageIO.write(newImage, "png", new File("saida/"+fileName));
         
     }
     
