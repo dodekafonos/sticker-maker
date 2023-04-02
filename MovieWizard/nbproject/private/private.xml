@@ -5,7 +5,10 @@
         <group>
             <file>file:/home/jonas/NetBeansProjects/sticker-maker/MovieWizard/src/moviewizard/MovieWizard.java</file>
             <file>file:/home/jonas/NetBeansProjects/sticker-maker/MovieWizard/src/moviewizard/StickerMaker.java</file>
+            <file>file:/home/jonas/NetBeansProjects/sticker-maker/MovieWizard/src/moviewizard/ExtratorDeConteudo.java</file>
             <file>file:/home/jonas/NetBeansProjects/sticker-maker/MovieWizard/src/moviewizard/JSONParser.java</file>
+            <file>file:/home/jonas/NetBeansProjects/sticker-maker/MovieWizard/src/moviewizard/Conteudo.java</file>
+            <file>file:/home/jonas/NetBeansProjects/sticker-maker/MovieWizard/src/moviewizard/ClienteHTTP.java</file>
         </group>
     </open-files>
 </project-private>
